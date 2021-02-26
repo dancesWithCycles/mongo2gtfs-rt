@@ -32,7 +32,8 @@ const VehPosPb=require('./vehPosPb');
 // restrict origin list
 let whitelist = [
     'https://localhost',
-    'http://localhost'
+    'http://localhost',
+    'http://localhost:55555'
 ];
 
 const App=Express();
@@ -87,7 +88,7 @@ App.get('/vehiclePostions.pb', (req, res) => {
             throw err
         }
         const locations=VehPosPb(data)
-        res.contentType('application/octet-stram')
+        res.contentType('application/octet-stream')
         res.send(locations);
     })
 })
